@@ -319,7 +319,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 style={{ textAlign: 'center', fontSize: '2.5em' }}>HeatMap</h1>
+      <h1 style={{ textAlign: 'center', fontSize: '2.5em' }}>NASDAQ Viz</h1>
       <div id="heatmapdiv" style={{ height: "100vh" }}>
         <div style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>
           <div className="dropdownHeader">
