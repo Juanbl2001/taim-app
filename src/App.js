@@ -299,11 +299,11 @@ function App() {
       return {
         ...base,
         // Adjust the following properties as needed
-        maxWidth: 'calc(100% / 6 - 10px)', // assuming 7 items per line and some space for margin
+        maxWidth: 'calc(100% / 5- 10px)', // assuming 7 items per line and some space for margin
         margin: '5px',
         justifyContent: 'center',
         flexGrow: 1,
-        flexBasis: 'calc(100% / 6 - 10px)',
+        flexBasis: 'calc(100% / 5 - 10px)',
       };
     },
     valueContainer: (base, state) => {
