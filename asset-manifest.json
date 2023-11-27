@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/taim-app/static/css/main.7542adb0.css",
-    "main.js": "/taim-app/static/js/main.3c093e1c.js",
-    "static/js/787.2c9d0192.chunk.js": "/taim-app/static/js/787.2c9d0192.chunk.js",
+    "main.css": "/taim-app/static/css/main.6dcdb50f.css",
+    "main.js": "/taim-app/static/js/main.546b91b9.js",
+    "static/js/787.0d43aeaf.chunk.js": "/taim-app/static/js/787.0d43aeaf.chunk.js",
     "index.html": "/taim-app/index.html",
-    "main.7542adb0.css.map": "/taim-app/static/css/main.7542adb0.css.map",
-    "main.3c093e1c.js.map": "/taim-app/static/js/main.3c093e1c.js.map",
-    "787.2c9d0192.chunk.js.map": "/taim-app/static/js/787.2c9d0192.chunk.js.map"
+    "main.6dcdb50f.css.map": "/taim-app/static/css/main.6dcdb50f.css.map",
+    "main.546b91b9.js.map": "/taim-app/static/js/main.546b91b9.js.map",
+    "787.0d43aeaf.chunk.js.map": "/taim-app/static/js/787.0d43aeaf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7542adb0.css",
-    "static/js/main.3c093e1c.js"
+    "static/css/main.6dcdb50f.css",
+    "static/js/main.546b91b9.js"
   ]
 }
