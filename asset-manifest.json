@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/taim-app/static/css/main.6dcdb50f.css",
-    "main.js": "/taim-app/static/js/main.c7c2710a.js",
+    "main.js": "/taim-app/static/js/main.8012f2d8.js",
     "static/js/787.0d43aeaf.chunk.js": "/taim-app/static/js/787.0d43aeaf.chunk.js",
     "index.html": "/taim-app/index.html",
     "main.6dcdb50f.css.map": "/taim-app/static/css/main.6dcdb50f.css.map",
-    "main.c7c2710a.js.map": "/taim-app/static/js/main.c7c2710a.js.map",
+    "main.8012f2d8.js.map": "/taim-app/static/js/main.8012f2d8.js.map",
     "787.0d43aeaf.chunk.js.map": "/taim-app/static/js/787.0d43aeaf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6dcdb50f.css",
-    "static/js/main.c7c2710a.js"
+    "static/js/main.8012f2d8.js"
   ]
 }
