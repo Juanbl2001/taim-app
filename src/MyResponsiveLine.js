@@ -56,9 +56,11 @@ export const MyResponsiveLine = ({ data , date , agg, combinedYTD}) => {
     if(agg){
         // Aggregation: join all series into one by averaging the values for that date
         const dateMap = new Map();
+
         filteredData.forEach(serie => {
             serie.data.forEach(point => {
                 const date = point.x;
+
                 if (!dateMap.has(date)) {
                     dateMap.set(date, []);
                 }
@@ -72,39 +74,55 @@ export const MyResponsiveLine = ({ data , date , agg, combinedYTD}) => {
             aggregatedData.push({ x: date, y: avg });
         });
 
-        //get the first value of each month and store it in a map (date is in the form of YYYY-MM-DD)
-        // Initialize firstPriceMonthMap
-        let firstPriceMonthMap = [];
-        let lastMonth = null;
+        //sort by date
+        aggregatedData.sort((a, b) => {
+            const dateA = new Date(a.x);
+            const dateB = new Date(b.x);
 
-        // Iterate over aggregatedData to find the first entry of each month
-        aggregatedData.forEach(point => {
-            const date = new Date(point.x);
-            const month = date.getMonth();
-
-            if (month !== lastMonth) {
-                firstPriceMonthMap.push(point);
-                lastMonth = month;
-            }
-            
+            return dateA - dateB;
         });
 
-        // Add the last point of the aggregated data to complete the last month
-        if (aggregatedData.length > 0) {
-            firstPriceMonthMap.push(aggregatedData[aggregatedData.length - 1]);
-        }
+        //map to first price of each month
+        if(!combinedYTD){
+            let firstPriceMonthMap = [];
+            let lastMonth = null;
 
+            // Iterate over aggregatedData to find the first entry of each month
+            aggregatedData.forEach(point => {
+                const date = new Date(point.x);
+                const month = date.getMonth();
 
-        filteredData = [
-            {
-                id: 'Aggregated Data',
-                data: aggregatedData
-            },
-            {
-                id: 'Month Data',
-                data:  firstPriceMonthMap
+                if (month !== lastMonth) {
+                    firstPriceMonthMap.push(point);
+                    lastMonth = month;
+                }
+                
+            });
+
+            // Add the last point of the aggregated data to complete the last month
+            if (aggregatedData.length > 0) {
+                firstPriceMonthMap.push(aggregatedData[aggregatedData.length - 1]);
             }
-        ];
+            
+            filteredData = [
+                {
+                    id: 'Aggregated Data',
+                    data: aggregatedData
+                },
+                {
+                    id: 'Month Data',
+                    data:  firstPriceMonthMap
+                }
+            ];
+        }
+        else{
+            filteredData = [
+                {
+                    id: 'Aggregated Data',
+                    data: aggregatedData
+                }
+            ];
+        }
 
     }
 
