@@ -3,6 +3,8 @@
 import { ResponsiveLine } from '@nivo/line'
 
 export const MyResponsiveLine = ({ data , date , agg, combinedYTD}) => {
+
+    const Months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     if(data.length === 0) {
         return <p>Loading data...</p>;
     }
@@ -70,19 +72,61 @@ export const MyResponsiveLine = ({ data , date , agg, combinedYTD}) => {
             aggregatedData.push({ x: date, y: avg });
         });
 
+        //get the first value of each month and store it in a map (date is in the form of YYYY-MM-DD)
+        // Initialize firstPriceMonthMap
+        let firstPriceMonthMap = [];
+        let lastMonth = null;
+
+        // Iterate over aggregatedData to find the first entry of each month
+        aggregatedData.forEach(point => {
+            const date = new Date(point.x);
+            const month = date.getMonth();
+
+            if (month !== lastMonth) {
+                firstPriceMonthMap.push(point);
+                lastMonth = month;
+            }
+            
+        });
+
+        // Add the last point of the aggregated data to complete the last month
+        if (aggregatedData.length > 0) {
+            firstPriceMonthMap.push(aggregatedData[aggregatedData.length - 1]);
+        }
+
+
         filteredData = [
             {
-                id: 'Aggregated',
+                id: 'Aggregated Data',
                 data: aggregatedData
+            },
+            {
+                id: 'Month Data',
+                data:  firstPriceMonthMap
             }
         ];
-    }
 
-    console.log("LATSTS:", filteredData);
+    }
 
     return <ResponsiveLine
         data={filteredData}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        tooltip={({ point }) => (
+            <div
+              style={{
+                color: 'black',
+                background: 'rgba(255, 255, 255, 0.7)', // slightly transparent white
+                padding: '12px 16px',
+                border: '1px solid #ccc',
+                boxShadow: '0px 2px 4px rgba(0,0,0,0.1)', // optional: adds a subtle shadow for depth
+                borderRadius: '4px', // optional: rounds the corners
+              }}
+            >
+              <div><strong>Name:</strong> {point.serieId}</div>
+              <div><strong>% Change:</strong> {point.data.yFormatted}</div>
+              <div><strong>Date:</strong> {point.data.xFormatted}</div>
+            </div>
+        )}
         yScale={{
             type: 'linear',
             min: 'auto',
