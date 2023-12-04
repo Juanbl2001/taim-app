@@ -348,18 +348,23 @@ function App() {
               }}
             />
           </div>
-          <div className="timeFrameDropdownHeader" style={{ display: 'flex', alignItems: 'center' }}>
-            <label htmlFor="timeFrameDropdown" style={{ marginRight: '10px' }}>Time Frame:</label>
-            <Select
-              id="timeFrameDropdown"
-              value={selectedTimeFrame}
-              onChange={handleTimeFrameChange}
-              options={timeFrameOptions}
-              isSearchable={false}
-              style={{ width: '300px' }}
-            />
+          <div>
+            <div className="timeFrameDropdownHeader" style={{ display: 'flex', alignItems: 'center' }}>
+              <label htmlFor="timeFrameDropdown" style={{ marginRight: '10px' }}>Time Frame:</label>
+              <Select
+                id="timeFrameDropdown"
+                value={selectedTimeFrame}
+                onChange={handleTimeFrameChange}
+                options={timeFrameOptions}
+                isSearchable={false}
+                style={{ width: '300px' }}
+              />
+            </div>
+            <h3 style={{ fontSize: '0.8em' }}>
+                YTD = Year to Date <br/>
+                Activity = Volume Traded
+            </h3>
           </div>
-
           <div className="aggregateCheckboxHeader" style={{ display: 'flex', alignItems: 'center' }}>
             <label htmlFor="aggregateCheckbox">Aggregate Stocks:</label>
             <input
@@ -373,14 +378,19 @@ function App() {
           {selectedTimeFrame.value === 'YTD' ? (
             <div style={{ display: 'flex'}}>
               <>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <label htmlFor="yearDropdown" style={{ marginRight: '0.5em' }}> Select Date:</label>
-                  <DatePicker
-                    selected={startDate}
-                    onChange={date => setStartDate(date)}
-                    minDate={minDate}
-                    maxDate={maxDate}
-                  />
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <label htmlFor="yearDropdown" style={{ marginRight: '0.5em' }}> Select Date:</label>
+                    <DatePicker
+                      selected={startDate}
+                      onChange={date => setStartDate(date)}
+                      minDate={minDate}
+                      maxDate={maxDate}
+                    />
+                  </div>
+                  <h3 style={{ fontSize: '0.8em' }}>
+                    From: 01/01/{startDate.getFullYear()}
+                  </h3>
                 </div>
                 <div className="aggregateCheckboxHeader" style={{ display: 'flex', alignItems: 'center' }}>
                   <label htmlFor="combinedYTD" style={{ marginLeft: '1em', marginRight: '0.2em' }}>All YTD:</label>

@@ -168,7 +168,7 @@ export const MyResponsiveLine = ({ data , date , agg, combinedYTD}) => {
             // tickSize: 5,
             // tickPadding: 5,
             // tickRotation: 0,
-            legend: '% Change',
+            legend: 'Price % Change YTD',
             legendOffset: -40,
             legendPosition: 'middle'
         }}

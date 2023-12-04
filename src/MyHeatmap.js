@@ -30,7 +30,7 @@ export const MyHeatMap = ({ data }) => {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: -90,
-            legend: 'Volume',
+            legend: 'Volume Traded',
             legendOffset: 46
         }}
         axisRight={{
@@ -71,7 +71,7 @@ export const MyHeatMap = ({ data }) => {
                 tickSpacing: 4,
                 tickOverlap: false,
                 tickFormat: '>-.2s',
-                title: 'Volume →',
+                title: 'Volume Traded →',
                 titleAlign: 'start',
                 titleOffset: 4
             }
